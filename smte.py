@@ -3,12 +3,12 @@ import os
 
 # mp4 파일 frame 추출
 
-folder = 'k-cow'
+folder = 'test'
 os.mkdir(folder)
 # use opencv to do the job
 print(cv2.__version__)  # my version is 3.1.0
 vidcap = cv2.VideoCapture(
-    r'01_202109081705528_2\01_202109081705528_2.mp4')
+    r'mounting_000\mounting_000.mp4')
 count = 0
 while True:
     success, image = vidcap.read()
