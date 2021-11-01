@@ -18,7 +18,7 @@ os.chdir(script_path)
 
 # txt file load
 #data = pd.read_csv('파일경로', sep = "\t", engine='python', encoding = "인코딩방식")
-data = pd.read_csv(r'01_20210908170650302\01_20210908170650302_det.txt',
+data = pd.read_csv('mounting_001\mounting_001_det.txt',
                    sep=",", engine='python', encoding="cp949")
 
 # data 전처리
@@ -84,14 +84,14 @@ for (data_frame, x_cen, y_cen, width, height), theta in zip(input_data, degrees_
 
     count += 1
 
-    images = cv2.imread((r"C:\Users\ond\vs_space\intflow\origin\frame{}.jpg").format(
+    images = cv2.imread((r"C:\Users\ond\vs_space\intflow\001\frame_{}.jpg").format(
         data_frame), cv2.IMREAD_UNCHANGED)
   
     #image_temp = cv2.cvtColor(images,cv2.COLOR_BGR2RGB)
     ellipse_img = cv2.ellipse(images, (x_cen, y_cen), (width, height),
                         theta, 0, 360, (0, 256, 0), 2)
 
-    cv2.imwrite(r"C:\Users\ond\vs_space\intflow\origin\frame{}.jpg".format(data_frame), ellipse_img)          
+    cv2.imwrite(r"C:\Users\ond\vs_space\intflow\001\frame_{}.jpg".format(data_frame), ellipse_img)          
     print(count)
 
 
@@ -100,7 +100,7 @@ for (data_frame, no_x, no_y, ne_x, ne_y, ta_x, ta_y) in cow_data:
     
     count += 1
 
-    images = cv2.imread((r"C:\Users\ond\vs_space\intflow\origin\frame{}.jpg").format(
+    images = cv2.imread((r"C:\Users\ond\vs_space\intflow\001\frame_{}.jpg").format(
         data_frame), cv2.IMREAD_UNCHANGED)                   
     circle_img = cv2.circle(images,(no_x, no_y), radius=5, color=(0, 0, 255), thickness= 1)  
     circle_img = cv2.circle(images,(ne_x, ne_y), radius=5, color=(0, 0, 255), thickness= 1)
@@ -110,5 +110,5 @@ for (data_frame, no_x, no_y, ne_x, ne_y, ta_x, ta_y) in cow_data:
     # cv2.imshow('images', circle_img)
     # cv2.waitKey(frameRate)
     # cv2.destroyAllWindows()
-    cv2.imwrite(r"C:\Users\ond\vs_space\intflow\origin\frame{}.jpg".format(data_frame), circle_img)
+    cv2.imwrite(r"C:\Users\ond\vs_space\intflow\001\frame_{}.jpg".format(data_frame), circle_img)
     print(count)
